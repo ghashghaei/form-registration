@@ -5,13 +5,21 @@
     <div class="input-container">
       <input
         id="email"
+<<<<<<< HEAD
         v-model="email"
+=======
+        :value="modelValue"
+>>>>>>> 30636fc (create form)
         type="email"
         placeholder="Enter your email"
         :class="['input', { error: emailError }]"
         aria-describedby="email-error"
         aria-invalid="true"
         @blur="validateEmail"
+<<<<<<< HEAD
+=======
+        @input="updateEmail"
+>>>>>>> 30636fc (create form)
       />
     </div>
 
@@ -23,16 +31,38 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref } from 'vue';
 
 // Email state and error
 const email = ref('');
+=======
+import { ref } from "vue";
+
+// Define props and emit for v-model
+const props = defineProps({
+  modelValue: String,
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+// Email validation state
+>>>>>>> 30636fc (create form)
 const emailError = ref(false);
 
 // Email validation regex
 const validateEmail = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+<<<<<<< HEAD
   emailError.value = !emailRegex.test(email.value);
+=======
+  emailError.value = !emailRegex.test(props.modelValue);
+};
+
+// Emit the updated email value
+const updateEmail = (event) => {
+  emit("update:modelValue", event.target.value);
+>>>>>>> 30636fc (create form)
 };
 </script>
 
@@ -74,6 +104,7 @@ const validateEmail = () => {
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
+<<<<<<< HEAD
 
 /* Button styling (if included in the form) */
 button {
@@ -99,4 +130,6 @@ label {
   font-weight: normal;
   margin: 0 5px;
 }
+=======
+>>>>>>> 30636fc (create form)
 </style>

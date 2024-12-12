@@ -10,7 +10,10 @@ import RegistrationForm from "./components/RegistrationForm.vue";
 </script>
 
 <style>
+<<<<<<< HEAD
 /* Add any specific styles for the app container */
+=======
+>>>>>>> 30636fc (create form)
 #app {
   max-width: 400px;
   margin: 0 auto;
