@@ -7,21 +7,13 @@
     <div class="input-container">
       <input
         id="password"
-<<<<<<< HEAD
-        v-model="password"
-=======
         :value="modelValue"
->>>>>>> 30636fc (create form)
         :type="passwordVisible ? 'text' : 'password'"
         placeholder="Enter your password"
         class="input"
         aria-describedby="password-error"
         aria-invalid="passwordError"
-<<<<<<< HEAD
-        @input="checkPasswordRules"
-=======
         @input="updatePassword"
->>>>>>> 30636fc (create form)
       />
       <span class="toggle-visibility" @click="toggleVisibility">
         <img
@@ -33,11 +25,7 @@
     </div>
 
     <!-- Password Rules and Strength Meter -->
-<<<<<<< HEAD
-    <div v-if="password.length > 0" class="password-rules">
-=======
     <div v-if="modelValue.length > 0" class="password-rules">
->>>>>>> 30636fc (create form)
       <p class="strength-label">{{ strengthText }}</p>
 
       <!-- Dynamic rendering of password rules -->
@@ -74,17 +62,6 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-import { ref, computed } from 'vue';
-import { passwordRules } from '../utils/passwordValidation';
-import tickIcon from '../assets/check.png';
-import crossIcon from '../assets/remove.png';
-import eyeIconOpen from '../assets/open-eye.png';
-import eyeIconClosed from '../assets/eye.png';
-
-// Password input state
-const password = ref('');
-=======
 import { ref, computed } from "vue";
 import { passwordRules } from "../utils/passwordValidation";
 import tickIcon from "../assets/check.png";
@@ -99,16 +76,11 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 // Password input state
->>>>>>> 30636fc (create form)
 const passwordVisible = ref(false);
 const passwordError = ref(false);
 
 // Password rules and validation logic
-<<<<<<< HEAD
-const passwordRulesComputed = computed(() => passwordRules(password.value));
-=======
 const passwordRulesComputed = computed(() => passwordRules(props.modelValue));
->>>>>>> 30636fc (create form)
 
 // Password strength calculation based on valid rules
 const strengthPercentage = computed(() => {
@@ -125,29 +97,17 @@ const strengthPercentage = computed(() => {
 // Password strength color based on percentage
 const strengthColor = computed(() => {
   const strength = strengthPercentage.value;
-<<<<<<< HEAD
-  if (strength >= 80) return 'var(--color-valid)'; // Green for strong
-  if (strength >= 40) return 'var(--color-warning)'; // Yellow for medium
-  return 'var(--color-invalid)'; // Red for weak
-=======
   if (strength >= 80) return "var(--color-valid)"; // Green for strong
   if (strength >= 40) return "var(--color-warning)"; // Yellow for medium
   return "var(--color-invalid)"; // Red for weak
->>>>>>> 30636fc (create form)
 });
 
 // Password strength text
 const strengthText = computed(() => {
   const strength = strengthPercentage.value;
-<<<<<<< HEAD
-  if (strength >= 80) return 'Strong';
-  if (strength >= 40) return 'Medium';
-  return 'Weak';
-=======
   if (strength >= 80) return "Strong";
   if (strength >= 40) return "Medium";
   return "Weak";
->>>>>>> 30636fc (create form)
 });
 
 // Toggle password visibility
@@ -155,14 +115,11 @@ const toggleVisibility = () => {
   passwordVisible.value = !passwordVisible.value;
 };
 
-<<<<<<< HEAD
-=======
 // Emit the updated password value
 const updatePassword = (event) => {
   emit("update:modelValue", event.target.value);
 };
 
->>>>>>> 30636fc (create form)
 // Check password validation status
 const checkPasswordRules = () => {
   // Update password error based on whether any rule is invalid

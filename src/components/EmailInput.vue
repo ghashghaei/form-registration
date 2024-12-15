@@ -5,21 +5,14 @@
     <div class="input-container">
       <input
         id="email"
-<<<<<<< HEAD
-        v-model="email"
-=======
         :value="modelValue"
->>>>>>> 30636fc (create form)
         type="email"
         placeholder="Enter your email"
         :class="['input', { error: emailError }]"
         aria-describedby="email-error"
         aria-invalid="true"
         @blur="validateEmail"
-<<<<<<< HEAD
-=======
         @input="updateEmail"
->>>>>>> 30636fc (create form)
       />
     </div>
 
@@ -31,12 +24,6 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-import { ref } from 'vue';
-
-// Email state and error
-const email = ref('');
-=======
 import { ref } from "vue";
 
 // Define props and emit for v-model
@@ -47,22 +34,17 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 // Email validation state
->>>>>>> 30636fc (create form)
 const emailError = ref(false);
 
 // Email validation regex
 const validateEmail = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-<<<<<<< HEAD
-  emailError.value = !emailRegex.test(email.value);
-=======
   emailError.value = !emailRegex.test(props.modelValue);
 };
 
 // Emit the updated email value
 const updateEmail = (event) => {
   emit("update:modelValue", event.target.value);
->>>>>>> 30636fc (create form)
 };
 </script>
 
@@ -104,32 +86,4 @@ const updateEmail = (event) => {
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
-<<<<<<< HEAD
-
-/* Button styling (if included in the form) */
-button {
-  padding: 1rem;
-  background-color: var(--color-button-bg);
-  color: white;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: var(--color-button-disabled);
-  cursor: not-allowed;
-}
-
-input[type='checkbox'] {
-  width: auto;
-}
-
-label {
-  font-size: 1rem;
-  font-weight: normal;
-  margin: 0 5px;
-}
-=======
->>>>>>> 30636fc (create form)
 </style>
